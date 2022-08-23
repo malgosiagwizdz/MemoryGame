@@ -10,18 +10,19 @@ public class Game {
     public void play() {
         ArrayList<String> wordList = this.readWords("Words.txt");
         ArrayList<String> riddleWords = this.chooseWords(wordList);
-        drawGameBoard(riddleWords);
-        readCoord();
+        while (chances-- > 0) {
+            drawGameBoard(riddleWords);
+            readCoord();
+        }
     }
 
     private int chances = 10;
 
-    private String readCoord(){
-        //while{
+    private String readCoord() {
         System.out.println("Enter Coordinates: ");
         Scanner scanner = new Scanner(System.in);
         String coord = scanner.nextLine();
-        return coord;     
+        return coord;
     }
 
     private void drawGameBoard(ArrayList<String> riddleWords) {
@@ -30,7 +31,7 @@ public class Game {
         String[] wordBoard = { " X", " X", " X", " X", " X", " X", " X", " X" };
         System.out.println("************************************");
         System.out.println("LEVEL: easy");
-        System.out.println("Geuss chances "+ chances);
+        System.out.println("Geuss chances " + chances);
         System.out.println("  1 2 3 4");
         System.out.println("A" + wordBoard[0] + wordBoard[1] + wordBoard[2] + wordBoard[3]);
         System.out.println("B" + wordBoard[4] + wordBoard[5] + wordBoard[6] + wordBoard[7]);
